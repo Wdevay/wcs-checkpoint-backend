@@ -13,6 +13,11 @@ export class CountryResolver {
     return Country.findOne({ where: { code } });
   }
 
+  @Query(() => [Country])
+  async countriesByContinent(@Arg("continent") continent: string): Promise<Country[]> {
+    return Country.find({ where: { continent } });
+  }
+
   @Mutation(() => Country)
   async createCountry(
     @Arg("data", () => CountryInput) data: CountryInput

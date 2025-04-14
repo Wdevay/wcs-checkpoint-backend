@@ -19,6 +19,10 @@ export class Country extends BaseEntity {
   @Field()
   @Column()
   emoji!: string;
+
+  @Field()
+  @Column()
+  continent!: string;
 }
 
 @InputType()
@@ -31,5 +35,7 @@ export class CountryInput {
 
   @Field({ nullable: true })
   emoji!: string;
-  
+
+  @Field({ nullable: true })
+  continent!: string;
 }
